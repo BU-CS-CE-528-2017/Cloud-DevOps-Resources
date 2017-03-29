@@ -13,11 +13,6 @@ sudo wget -O /etc/apt/sources.list.d/bigtop-1.1.0.list  http://www.apache.org/di
 
 sudo apt-get update
 
-
-wrk_dir=$PWD
-if [ ! -d source  ] ; then
-mkdir source; cd $_
-
 sudo RUNLEVEL=1 apt-get install -y hadoop hadoop-client hadoop-hdfs hadoop-yarn* hadoop-mapred* hadoop-conf* libhdfs_* 
 
 export HADOOP_PREFIX=/usr/lib/hadoop
