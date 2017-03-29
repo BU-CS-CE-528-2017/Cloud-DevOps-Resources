@@ -40,6 +40,4 @@ sudo chown -R $USER:hadoop /etc/hadoop
 sudo service hadoop-hdfs-datanode start
 sudo service hadoop-yarn-nodemanager start
 
-sudo service spark-worker start
-
 sudo chmod -R 1777 /tmp
