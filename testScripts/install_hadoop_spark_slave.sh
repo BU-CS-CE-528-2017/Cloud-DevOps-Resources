@@ -13,18 +13,14 @@ sudo wget -O /etc/apt/sources.list.d/bigtop-1.1.0.list  http://www.apache.org/di
 
 sudo apt-get update
 
-wrk_dir=$PWD
-if [ ! -d source  ] ; then
-mkdir source; cd $_
-
 wget https://ci.bigtop.apache.org/job/Bigtop-1.1.0/BUILD_ENVIRONMENTS=ubuntu-14.04,label=docker-slave/lastSuccessfulBuild/artifact/*zip*/archive.zip
 unzip archive.zip; mv archive/output/spark/*.deb .; rm -rf archive; rm archive.zip
 
 sudo RUNLEVEL=1 apt-get install -y hadoop hadoop-client hadoop-hdfs hadoop-yarn* hadoop-mapred* hadoop-conf* libhdfs_* 
 
-cd $wrk_dir/source
+
 sudo  RUNLEVEL=1 dpkg -i spark*.deb 
-cd ..
+
 
 export HADOOP_PREFIX=/usr/lib/hadoop
 export JAVA_HOME=`sudo find /usr/ -name java-8-openjdk-*`
