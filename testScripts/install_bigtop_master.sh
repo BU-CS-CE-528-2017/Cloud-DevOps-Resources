@@ -1,6 +1,5 @@
 #!/bin/bash
 set -ex
-USER=cons3rt
 sudo apt-get update
 sudo apt-get install -y software-properties-common
 sudo add-apt-repository -y  ppa:openjdk-r/ppa
