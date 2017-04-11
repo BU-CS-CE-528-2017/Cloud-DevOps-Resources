@@ -53,5 +53,5 @@ sudo service hadoop-yarn-resourcemanager start
 sudo service hadoop-mapreduce-historyserver start
 #sudo service hadoop-yarn-timelineserver restart
 
-sudo -u hdfs hadoop fs -mkdir -p /user/$(whoiami)
+sudo -u hdfs hadoop fs -mkdir -p /user/$(whoami)
 sudo -u hdfs hadoop fs -chown $(whoami) /user/$(whoami)
