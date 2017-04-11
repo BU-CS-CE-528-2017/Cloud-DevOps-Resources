@@ -30,11 +30,11 @@ echo "export HADOOP_MAPRED_HOME=/usr/lib/hadoop-mapreduce" | sudo tee -a $HADOOP
 echo "export HADOOP_YARN_HOME=/usr/lib/hadoop-yarn" | sudo tee -a $HADOOP_PREFIX/etc/hadoop/hadoop-env.sh $HADOOP_PREFIX/etc/hadoop/yarn-env.sh
 
 sudo sed -i s/localhost/$HOSTNAME/ /etc/hadoop/conf/core-site.xml
-sudo chown -R $USER:hadoop /usr/lib/hadoop*
+sudo chown -R $(whoami):hadoop /usr/lib/hadoop*
 sudo chown -R hdfs:hadoop /var/log/hadoop-hdfs*
 sudo chown -R yarn:hadoop /var/log/hadoop-yarn*
 sudo chown -R mapred:hadoop /var/log/hadoop-mapred*
-sudo chown -R $USER:hadoop /etc/hadoop
+sudo chown -R $(whoami):hadoop /etc/hadoop
 ./update-conf.sh $HOSTNAME $HOSTNAME
 
 ### master node onlly
@@ -53,5 +53,5 @@ sudo service hadoop-yarn-resourcemanager start
 sudo service hadoop-mapreduce-historyserver start
 #sudo service hadoop-yarn-timelineserver restart
 
-sudo -u hdfs hadoop fs -mkdir -p /user/$USER
-sudo -u hdfs hadoop fs -chown $USER /user/$USER
+sudo -u hdfs hadoop fs -mkdir -p /user/$(whoiami)
+sudo -u hdfs hadoop fs -chown $(whoami) /user/$(whoami)
