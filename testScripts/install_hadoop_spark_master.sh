@@ -2,10 +2,13 @@
 set -ex
 sudo apt-get update
 
-wget https://ci.bigtop.apache.org/job/Bigtop-1.0.0-deb/BUILD_ENVIRONMENTS=ubuntu-14.04,label=docker-slave-07/lastSuccessfulBuild/artifact/output/spark/*zip*/archive.zip
-unzip archive.zip
+#wget https://ci.bigtop.apache.org/job/Bigtop-1.0.0-deb/BUILD_ENVIRONMENTS=ubuntu-14.04,label=docker-slave-07/lastSuccessfulBuild/artifact/output/spark/*zip*/archive.zip
+wget http://www.apache.org/dyn/closer.lua/spark/spark-2.1.0/spark-2.1.0-bin-hadoop2.7.tgz
+#unzip archive.zip
+tar -xvf spark-2.1.0-bin-hadoop2.7.tgz
 
-cd $PWD/spark
+#cd $PWD/spark
+cd $PWD/spark-2.1.0-bin-hadoop2.7
 sudo  RUNLEVEL=1 dpkg -i spark*.deb
 cd ..
 
