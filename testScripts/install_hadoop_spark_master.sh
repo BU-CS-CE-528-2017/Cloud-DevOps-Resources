@@ -3,14 +3,11 @@ set -ex
 sudo apt-get update
 
 wget https://ci.bigtop.apache.org/job/Bigtop-1.0.0-deb/BUILD_ENVIRONMENTS=ubuntu-14.04,label=docker-slave-07/lastSuccessfulBuild/artifact/output/spark/*zip*/archive.zip
-unzip archive.zip; mv archive/output/spark/*.deb .; rm -rf archive; rm archive.zip
+unzip archive.zip
 
-cd $wrk_dir/source
+cd $PWD/spark
 sudo  RUNLEVEL=1 dpkg -i spark*.deb
 cd ..
-
-sudo  RUNLEVEL=1 dpkg -i spark*.deb
-
 
 echo "export SPARK_MASTER_IP=`hostname`"  |sudo tee -a /etc/spark/conf/spark-env.sh
 sudo chown -R $(whoami):hadoop /etc/spark
@@ -32,3 +29,5 @@ sudo -u hdfs hdfs dfs -chown -R $(whoami):hadoop /var/log/spark
 #for x in `cd /etc/init.d ; ls spark-*` ; do sudo service $x start ; done
 sudo service spark-master start
 sudo service spark-history-server start
+
+sudo chmod -R 1777 /tmp
