@@ -3,16 +3,20 @@
 set -ex
 sudo apt-get update
 
-wrk_dir=$PWD
-if [ ! -d source  ] ; then
-mkdir source; cd $_
-
-wget https://ci.bigtop.apache.org/job/Bigtop-1.1.0/BUILD_ENVIRONMENTS=ubuntu-14.04,label=docker-slave/lastSuccessfulBuild/artifact/*zip*/archive.zip
+wget https://ci.bigtop.apache.org/job/Bigtop-1.0.0-deb/BUILD_ENVIRONMENTS=ubuntu-14.04,label=docker-slave-07/lastSuccessfulBuild/artifact/output/spark/*zip*/archive.zip
 unzip archive.zip; mv archive/output/spark/*.deb .; rm -rf archive; rm archive.zip
 
+<<<<<<< HEAD
 cd $wrk_dir/source
 sudo  RUNLEVEL=1 dpkg -i spark*.deb
 cd ..
+=======
+sudo RUNLEVEL=1 apt-get install -y hadoop hadoop-client hadoop-hdfs hadoop-yarn* hadoop-mapred* hadoop-conf* libhdfs_* 
+
+
+sudo  RUNLEVEL=1 dpkg -i spark*.deb 
+
+>>>>>>> origin/master
 
 ### Spark configuration
 echo "export SPARK_MASTER_IP=$1"  |sudo tee -a /etc/spark/conf/spark-env.sh
