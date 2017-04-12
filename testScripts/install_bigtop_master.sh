@@ -13,7 +13,7 @@ sudo wget -O /etc/apt/sources.list.d/bigtop-1.1.0.list  http://www.apache.org/di
 
 sudo apt-get update
 
-sudo RUNLEVEL=1 apt-get install -y hadoop hadoop-client hadoop-hdfs hadoop-yarn* hadoop-mapred* hadoop-conf* libhdfs_* 
+sudo RUNLEVEL=1 apt-get install -y hadoop hadoop-client hadoop-hdfs hadoop-yarn* hadoop-mapred* hadoop-conf* libhdfs_*
 
 export HADOOP_PREFIX=/usr/lib/hadoop
 export JAVA_HOME=`sudo find /usr/ -name java-8-openjdk-*`
@@ -55,3 +55,5 @@ sudo service hadoop-mapreduce-historyserver start
 
 sudo -u hdfs hadoop fs -mkdir -p /user/$(whoami)
 sudo -u hdfs hadoop fs -chown $(whoami) /user/$(whoami)
+
+sudo chmod -R 1777 /tmp
