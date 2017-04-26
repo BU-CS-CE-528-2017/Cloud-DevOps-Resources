@@ -6,7 +6,7 @@
 - Java Open JDK 1.8
 - Apache Bigtop  v1.1+
   * Hadoop  v2.7.1
-  * Spark v1.6.2
+  * Spark v1.3.1
 - Scala  v2.10.4
 - Python
 - OpenSSL
