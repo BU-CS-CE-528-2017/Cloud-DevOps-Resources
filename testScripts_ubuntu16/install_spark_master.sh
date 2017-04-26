@@ -4,7 +4,7 @@ sudo apt-get update
 
 wget https://ci.bigtop.apache.org/view/Packages/job/Bigtop-trunk-packages/COMPONENTS=spark,OS=ubuntu-16.04/lastSuccessfulBuild/artifact/output/spark/*zip*/spark.zip
 #wget https://ci.bigtop.apache.org/job/Bigtop-trunk-packages-by-jenkins/COMPONENTS=spark,OS=ubuntu-16.04/lastSuccessfulBuild/artifact/*zip*/archive.zip
-unzip archive.zip
+unzip spark.zip
 
 cd $PWD/spark
 sudo RUNLEVEL=1 dpkg -i spark*.deb
