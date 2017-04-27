@@ -7,7 +7,7 @@ runID=$cons3rt_deploymentRun_id
 numSlaves=$(($numVMs-1))
 linkToVM=https://www.cons3rt.com/ui/#/runs/$runID
 
-if [ $cons3rt_deploymentRun_virtRealm_type = AMAZON_WEB_SERVICES
+if [ $cons3rt_deploymentRun_virtRealm_type = AMAZON_WEB_SERVICES ]
 then
 cloudspace=AWS
 else
