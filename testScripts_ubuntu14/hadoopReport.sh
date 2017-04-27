@@ -10,3 +10,4 @@ echo "Hadoop Test $hadoopTime"
 echo $hadoopMaps
 echo $hadoopSamples
 echo $hadoopPi
+echo ---
